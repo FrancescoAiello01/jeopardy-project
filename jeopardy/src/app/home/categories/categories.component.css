@@ -1,0 +1,16 @@
+mat-card {
+  width: 80%;
+  margin: 40px auto auto auto;
+}
+
+mat-list {
+  display: inline-block;
+}
+
+button {
+  margin-top: 15px;
+}
+
+.warning-text {
+  color: #f44336;
+}

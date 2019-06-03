@@ -1,0 +1,18 @@
+<mat-card>
+
+  <h2>Select categories for play</h2>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-list formArrayName="categories" *ngFor="let order of form.controls.categories.controls; let i = index">
+      <mat-list-item>
+        <mat-checkbox class="checkbox" type="checkbox" [formControlName]="i">{{ categories[i].name }}</mat-checkbox>
+      </mat-list-item>
+    </mat-list>
+    <div>
+      <span class="warning-text" *ngIf="!form.valid">Minimum 2 categories, maximum 4.</span>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" [disabled]="!form.valid">save</button>
+    </div>
+  </form>
+
+</mat-card>
