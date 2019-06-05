@@ -4,10 +4,10 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class DataService {
 
-  private categoriesData = new BehaviorSubject({ default: 'default' });
+  private categoriesData = new BehaviorSubject({});
   categoryMessage = this.categoriesData.asObservable();
 
-  private teamsData = new BehaviorSubject({ default: 'default' });
+  private teamsData = new BehaviorSubject({});
   teamsMessage = this.teamsData.asObservable();
 
   constructor() { }
