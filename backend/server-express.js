@@ -25,7 +25,7 @@ app.get('/allQuestions', (req, res) => { // if anyone hits the url /allQuestions
 });
 
 app.post('/api-token-auth', (req, res) => {
-    res.send('200');
+    mydb.authenticate(req, res);
 });
 
 app.set('port', process.env.PORT || 5000);

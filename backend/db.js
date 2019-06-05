@@ -44,17 +44,28 @@ const insertDocuments = function (db) {
 };
 
 const findDocuments = function (req, res) {
-    const db = client.db(dbName);
-    const collection = db.collection('jeopardy');
-    // Find all documents
-    collection.find({}).toArray(function (err, docs) {
-        if (err != null) {
-            console.log("There was an error:" + err);
-        }
-        console.log("Number of records found:" + docs.length);
-        res.send(docs);
-    });
+  const db = client.db(dbName);
+  const collection = db.collection('jeopardy');
+  // Find all documents
+  collection.find({}).toArray(function (err, docs) {
+    if (err != null) {
+      console.log("There was an error:" + err);
+    }
+    console.log("Number of records found:" + docs.length);
+    res.send(docs);
+  });
+};
+
+const authenticate = function (req, res) {
+   var authenticate = req.body.data;
+   console.log(req.body.data);
+  //  if (authenticate.username === "cs290" && authenticate.password === "spring") {
+  //    res.status(200);
+  //  } else {
+  //    res.status(402);
+  //  }
 };
 
 
 module.exports.findAll = findDocuments;
+module.exports.authenticate = authenticate;

@@ -17,6 +17,6 @@ export class ApiService {
     // TODO: Pass back 200 for good login, 401 for unathenticated in the backend
   }
   questions() {
-
+    return this.httpClient.get(`${this.BASE_URL}/allQuestions/`); // Get all questions in database
   }
 }
