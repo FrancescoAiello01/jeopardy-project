@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -7,4 +10,11 @@ import { Component } from '@angular/core';
 })
 export class AdminComponent {
   title = 'Admin page';
+
+  constructor(private authService: AuthService, private router: Router) { }
+
+  logout() {
+      this.authService.setUnauthenticated();
+      this.router.navigate(['/login']);
+  }
 }

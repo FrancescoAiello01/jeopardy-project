@@ -6,26 +6,16 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   public token: Observable<string>;
-  private _token: string = null;
-  private _tokenObserver: any;
 
-  constructor() {
-    this.token = new Observable(observer => {
-      this._tokenObserver = observer;
-    });
-  }
+  constructor() { }
 
-  static getToken() {
-    return localStorage.getItem('isAuthenticated');
-  }
-
-  getAuthenticated() {
+  static getAuthenticated() {
     return localStorage.getItem('isAuthenticated');
   }
 
   setAuthenticated(response) {
     localStorage.setItem('isAuthenticated', '1');
-    this._tokenObserver.next(this._token);
+    console.log(localStorage.getItem('isAuthenticated')); // Log this
   }
 
   setUnauthenticated() {

@@ -16,4 +16,7 @@ export class ApiService {
     return this.httpClient.post(`${this.BASE_URL}/api-token-auth/`, model); // Exact API endpoint for auth
     // TODO: Pass back 200 for good login, 401 for unathenticated in the backend
   }
+  questions() {
+
+  }
 }

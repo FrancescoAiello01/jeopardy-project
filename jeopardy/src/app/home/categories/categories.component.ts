@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@angular/forms';
+import { DataService } from '../../service/data.service';
 
 @Component({
   selector: 'app-categories',
@@ -18,11 +19,10 @@ export class CategoriesComponent {
     { id: 7, name: 'Pop Culture' }
   ];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private data: DataService) {
     this.form = this.formBuilder.group({
       categories: new FormArray([], minSelectedCheckboxes(2))
     });
-
     this.addCheckboxes();
   }
 
@@ -38,6 +38,8 @@ export class CategoriesComponent {
       .map((v, i) => v ? this.categories[i].id : null)
       .filter(v => v !== null);
     console.log(selectedOrderIds);
+    // Send the data
+    this.data.changeCategories(selectedOrderIds);
   }
 }
 

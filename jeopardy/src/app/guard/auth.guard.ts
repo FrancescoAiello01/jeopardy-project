@@ -10,9 +10,12 @@ export class AuthGuard implements CanActivate {
   ) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const token = AuthService.getToken();
+    console.log("top of function");
+    const token = AuthService.getAuthenticated();
+    console.log("token" + token);
 
     if (!token) { // if token is null, redirect to login page
+      console.log("if statement");
       this.router.navigate(['/login']);
       return false;
     }

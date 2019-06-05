@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { DataService } from '../../service/data.service';
 
 @Component({
   selector: 'app-teams',
@@ -16,11 +17,12 @@ export class TeamsComponent {
     team4: ['']
   });
 
-  constructor(private fb: FormBuilder) { }
-
+  constructor(private fb: FormBuilder, private data: DataService) { }
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
+    // Send the data
+    this.data.changeTeams(this.profileForm.value);
   }
 
 }
