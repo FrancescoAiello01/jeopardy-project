@@ -7,14 +7,18 @@ var http = require("http");
 var express = require('express');
 var mydb = require("./db");
 var bodyParser = require('body-parser');
-var morgan = require('morgan');
+var morgan = require('morgan'); // for console logging of activity
+var cors = require('cors'); // for enabling CORS request from angular
+
 
 
 var app = express();
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('combined'));
 app.use(express.static(__dirname));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors({ origin: true, credentials: true }));
+
 
 app.get('/', function (req, res) {
   res.send('API')

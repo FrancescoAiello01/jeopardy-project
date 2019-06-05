@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  BASE_URL = 'https://3693f5d5-e738-4813-88e5-d01b1475de0e.mock.pstmn.io'; // Change to express server URL
+  BASE_URL = 'http://localhost:5000'; // Change to express server URL
   API_URL = this.BASE_URL + '/api/v1'; // API endpoint paths
 
   constructor(private httpClient: HttpClient) { }

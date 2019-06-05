@@ -16,7 +16,6 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { JeopardyComponent } from './jeopardy/jeopardy.component';
 import { AuthGuard } from './guard/auth.guard';
-import { AdminGuard } from './guard/admin.guard';
 
 
 const appRoutes: Routes = [
