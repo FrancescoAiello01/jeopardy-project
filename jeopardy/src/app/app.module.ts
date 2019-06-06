@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,
-  MatCheckboxModule, MatListModule, MatToolbarModule, MatCardModule, MatTableModule } from '@angular/material';
+  MatCheckboxModule, MatListModule, MatToolbarModule, MatCardModule, MatTableModule, MatDialogModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,7 +14,7 @@ import { TeamsComponent } from './home/teams/teams.component';
 import { CategoriesComponent } from './home/categories/categories.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
-import { JeopardyComponent } from './jeopardy/jeopardy.component';
+import { JeopardyComponent, QuestionDialog } from './jeopardy/jeopardy.component';
 import { AuthGuard } from './guard/auth.guard';
 
 
@@ -53,7 +53,11 @@ const appRoutes: Routes = [
     CategoriesComponent,
     LoginComponent,
     AdminComponent,
+    QuestionDialog,
     JeopardyComponent
+  ],
+  entryComponents: [
+    QuestionDialog
   ],
   imports: [
     RouterModule.forRoot(
@@ -73,6 +77,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatCardModule,
     MatTableModule,
+    MatDialogModule,
     HttpClientModule
   ],
   providers: [],

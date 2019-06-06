@@ -10,13 +10,49 @@ import { DataService } from '../../service/data.service';
 export class CategoriesComponent {
   form: FormGroup;
   categories = [
-    { id: 1, name: 'Geography' },
-    { id: 2, name: 'Art' },
-    { id: 3, name: 'Technology' },
-    { id: 4, name: 'Economics' },
-    { id: 5, name: 'Science' },
-    { id: 6, name: 'World History' },
-    { id: 7, name: 'Pop Culture' }
+    { id: 1, name: 'Geography',
+    questions: [
+    { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+    { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+    { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+    { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' }]
+  },
+    { id: 2, name: 'Art',
+    questions: [
+      { questionText: 'question 1 category 2 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' }]
+    },
+    { id: 3, name: 'Technology',
+    questions: [
+      { questionText: 'question 1 category 3 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' }]
+    },
+    { id: 4, name: 'Economics', questions: [
+      { questionText: 'question 1 category 4 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' }] },
+    { id: 5, name: 'Science', questions: [
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' }] },
+    { id: 6, name: 'World History',
+    questions: [
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' }] },
+    { id: 7, name: 'Pop Culture',
+    questions: [
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' },
+      { questionText: 'question 1 category 1 ?', answer: 'answer 1 cat 1' }] },
   ];
 
   constructor(private formBuilder: FormBuilder, private data: DataService) {
@@ -35,7 +71,7 @@ export class CategoriesComponent {
 
   submit() { // Get the IDs of the checkboxes selected
     const selectedOrderIds = this.form.value.categories
-      .map((v, i) => v ? this.categories[i].id : null)
+      .map((v, i) => v ? this.categories[i] : null)
       .filter(v => v !== null);
     console.log(selectedOrderIds);
     // Send the data

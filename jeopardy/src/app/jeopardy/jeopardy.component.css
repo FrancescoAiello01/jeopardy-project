@@ -6,3 +6,8 @@ table {
 th.mat-sort-header-sorted {
   color: black;
 }
+
+h1 {
+  text-align: center;
+  margin-bottom: 2%;
+}
