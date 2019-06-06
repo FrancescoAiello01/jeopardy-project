@@ -2,8 +2,18 @@
 <p>Category data: {{ categories }}</p>
 <p>Team Data: {{ teams }}</p>
 
-<table>
-  <tr>Test
-    <td>{{ gameData.category }}</td>
+<p>Category 1: {{ categoryOne }}</p>
+
+<table border="1">
+  <tr>
+    <td>category</td>
+    <td>category</td>
+    <td>category</td>
+    <td>category</td>
+  </tr>
+  <tr *ngFor="let i of indices">
+    <td *ngFor="let ind of indices">
+      {{ totals[ind][i] }}
+    </td>
   </tr>
 </table>

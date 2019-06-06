@@ -57,11 +57,12 @@ const findDocuments = function (req, res) {
 };
 
 const authenticate = function (req, res) {
-    console.log("Username" + req.body.username + " password: " + req.body.password);
     if (req.body.username === "cs290" && req.body.password === "spring") {
-    res.status(200).send("Authentication successful");
+    res.status(200);
+    res.end();
     } else {
-    res.status(401).send("Authentication failed");
+    res.status(401);
+    res.end();
     }
     // TODO: Not currently able to read username and password for some reason, the object is marked as undefined.
 };

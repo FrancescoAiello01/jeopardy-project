@@ -21,8 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(private apiService: ApiService, private authService: AuthService,
               private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmit() {
     this.apiService.login(this.model).subscribe((response) => {
