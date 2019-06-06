@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,
-  MatCheckboxModule, MatListModule, MatToolbarModule, MatCardModule, MatTableModule, MatDialogModule } from '@angular/material';
+  MatCheckboxModule, MatListModule, MatToolbarModule, MatCardModule, MatTableModule, MatDialogModule,
+  MatExpansionModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -78,6 +79,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatTableModule,
     MatDialogModule,
+    MatExpansionModule,
     HttpClientModule
   ],
   providers: [],

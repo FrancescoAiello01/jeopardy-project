@@ -1,2 +1,28 @@
-<h1>Admin page</h1>
-<button (click)="logout()">logout</button>
+<h1>Hello, Admin!</h1>
+<!-- <textarea ngModel="textarea"></textarea> -->
+<div class="body">
+  <h2>Edit questions</h2>
+  <mat-accordion *ngFor='let cat of categories; let ind = index'>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h4>{{ categories[ind] }}</h4>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <label mat-label class="dropdown-label">Question:</label>
+      <mat-form-field>
+        <textarea matInput placeholder="Question"></textarea>
+      </mat-form-field>
+      <br />
+      <label mat-label class="dropdown-label">Answer:</label>
+      <mat-form-field>
+        <textarea matInput placeholder="Answer"></textarea>
+      </mat-form-field>
+      <br />
+      <button mat-raised-button color="primary">Save Changes</button>
+    </mat-expansion-panel>
+    <br />
+  </mat-accordion>
+</div>
+
+<button mat-raised-button color="warn" class="logout" (click)="logout()">logout</button>

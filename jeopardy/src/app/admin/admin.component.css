@@ -1,0 +1,17 @@
+h1 {
+  text-align: center;
+}
+
+.logout {
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.body {
+  width: 80%;
+  margin: auto;
+}
+
+.dropdown-label {
+  margin-right: 2%;
+}

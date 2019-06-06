@@ -13,8 +13,13 @@ export class AdminComponent {
 
   constructor(private authService: AuthService, private router: Router) { }
 
+  categories = ['Geography', 'Art', 'Technology', 'Economics', 'Science', 'World History', 'Pop Culture'];
+
+  textarea = "hello";
+
   logout() {
       this.authService.setUnauthenticated();
       this.router.navigate(['/login']);
   }
+
 }
