@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
 import { DataService } from '../service/data.service';
+import { QuestionDialog } from '../jeopardy/jeopardy.component';
+import { ApiService } from '../service/api.service';
 
 @Component({
   selector: 'app-admin',
@@ -12,12 +14,12 @@ import { DataService } from '../service/data.service';
 export class AdminComponent {
   title = 'Admin page';
 
-  constructor(private authService: AuthService, private router: Router, private data: DataService) { }
+  constructor(private authService: AuthService, private router: Router, private data: DataService, private apiService: ApiService) { }
 
   categories = ['Geography', 'Art', 'Technology', 'Economics', 'Science', 'World History', 'Pop Culture'];
-  questionData: object;
+  questionAmount = [0, 1, 2, 3];
+  questionDataTemp: object;
 
-  textarea = "hello";
 
   logout() {
       this.authService.setUnauthenticated();
@@ -25,7 +27,8 @@ export class AdminComponent {
   }
 
   ngOnInit() {
-    this.data.categoryMessage.subscribe(message => this.questionData = message);
+    this.apiService.questions().subscribe((response) => {
+      this.questionDataTemp = response;
+    });
   }
-
 }

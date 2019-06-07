@@ -3,7 +3,7 @@
 <div class="body">
   <h2>Edit questions</h2>
   <mat-accordion *ngFor='let cat of categories; let ind = index'>
-    <mat-expansion-panel>
+    <mat-expansion-panel *ngFor='let num of questionAmount; let question = index'>
       <mat-expansion-panel-header>
         <mat-panel-title>
           <h4>{{ categories[ind] }}</h4>
@@ -11,12 +11,12 @@
       </mat-expansion-panel-header>
       <label mat-label class="dropdown-label">Question:</label>
       <mat-form-field>
-        <textarea matInput placeholder="Question">{{ questionData.category[ind].questions[ind].questionText }}</textarea>
+        <textarea matInput placeholder="Question">{{ questionDataTemp[ind].questions[question].questionText }}</textarea>
       </mat-form-field>
       <br />
       <label mat-label class="dropdown-label">Answer:</label>
       <mat-form-field>
-        <textarea matInput placeholder="Answer"></textarea>
+        <textarea matInput placeholder="Answer">{{ questionDataTemp[ind].questions[question].answer }}</textarea>
       </mat-form-field>
       <br />
       <button mat-raised-button color="primary">Save Changes</button>
