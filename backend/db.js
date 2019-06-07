@@ -19,7 +19,7 @@ var questions = [
       { questionText: 'Who painted the Mona Lisa?', answer: 'Leonardo Da Vinci' },
       { questionText: 'Who is credited as the designer of the many statues which decorated the Parthenon?', answer: 'Phidias' },
       { questionText: 'What artist was struck in the face with a mallet by an envious rival, disfiguring him for life?', answer: 'Michelangelo' },
-      {questionText: 'What artist is best known for a painting of his mother?', answer: 'Whistler' }]
+      { questionText: 'What artist is best known for a painting of his mother?', answer: 'Whistler' }]
   },
   {
     id: 3, name: 'Technology',
@@ -61,7 +61,6 @@ var questions = [
   },
 ];
 
-
 client.connect(function (err) {
     if (err == null) console.log("Connected successfully to server");
     else {
@@ -102,6 +101,27 @@ const findDocuments = function (req, res) {
   });
 };
 
+const updateQuestion = function (req, res) {
+  const db = client.db(dbName);
+  const collection = db.collection('jeopardy');
+  //Update document
+  receivedObject = req.body;
+  const { name, questionText } = receivedObject;
+
+  collection.findOne({ name: name }, async function (err, result) {
+    if (result) {
+      console.log(receivedObject);
+      await collection.updateOne({ name: name }, { $set: { questionText: questionText } });
+      return res.send("Successfully Updated");
+    }
+    else {
+      console.log("===>", err)
+      res.status(400).send(err)
+    }
+  });
+
+}
+
 const authenticate = function (req, res) {
     if (req.body.username === "cs290" && req.body.password === "spring") {
     res.status(200);
@@ -110,9 +130,9 @@ const authenticate = function (req, res) {
     res.status(401);
     res.end();
     }
-    // TODO: Not currently able to read username and password for some reason, the object is marked as undefined.
 };
 
 
 module.exports.findAll = findDocuments;
+module.exports.updateQuestion = updateQuestion;
 module.exports.authenticate = authenticate;

@@ -33,6 +33,10 @@ app.post('/api-token-auth', (req, res) => {
     mydb.authenticate(req, res);
 });
 
+app.post('/updateQuestion', (req, res) => {
+  mydb.updateQuestion(req, res);
+});
+
 app.set('port', process.env.PORT || 5000);
 
 app.listen(app.get('port'), function () {

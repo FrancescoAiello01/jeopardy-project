@@ -15,8 +15,8 @@ export class JeopardyComponent {
   categories: object;
   teams: object;
 
-  totals = [100, 200, 300, 400, 500];
-  indices = [0, 1, 2, 3, 4];
+  totals = [100, 200, 300, 400];
+  indices = [0, 1, 2, 3];
 
   ngOnInit() {
     this.data.categoryMessage.subscribe(message => this.categories = message);
